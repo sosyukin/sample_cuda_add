@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(sample_cuda_add)
-
+find_package(CUDA REQUIRED)
 message(STATUS "Hello sample_cuda_add")
 message(STATUS "PROJECT_NAME : ${PROJECT_NAME}")
+include_directories(/usr/local/cuda-10.1/samples/common/inc)
 add_executable(${PROJECT_NAME} src/main.cpp)
+cuda_add_executable(vector_add src/vector_add.cu)
